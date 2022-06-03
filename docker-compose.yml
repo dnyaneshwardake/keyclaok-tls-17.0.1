@@ -1,16 +1,17 @@
 
 services:
   keycloak:
-    image: quay.io/keycloak/keycloak:17.0.1
-    command: start-dev
-    environment:
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
-      KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/tls.crt
-      KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/tls.key
+    build: . 
+    #image: quay.io/keycloak/keycloak:17.0.1
+    #command: start-dev
+    #environment:
+      #KEYCLOAK_ADMIN: admin
+      #KEYCLOAK_ADMIN_PASSWORD: admin
+      #KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/tls.crt
+      #KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/tls.key
     ports:
       - 8080:8080
       - 8443:8443
-    volumes:
-      - ./localhost.crt:/opt/keycloak/tls.crt
-      - ./localhost.key:/opt/keycloak/tls.key
+    #volumes:
+      #- ./localhost.crt:/opt/keycloak/tls.crt
+      #- ./localhost.key:/opt/keycloak/tls.key
